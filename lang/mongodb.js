@@ -269,7 +269,7 @@ export default function mongodb(Prism) {
       'UUID'
     ]
     operators = operators.map(function (operator) {
-      return operator.replace('$', '\\$')
+      return operator.replace(/\$/g, '\\$')
     })
     var operatorsSource = '(?:' + operators.join('|') + ')\\b'
     Prism.languages.mongodb = Prism.languages.extend('javascript', {})
